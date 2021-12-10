@@ -24,6 +24,7 @@ export class AppComponent {
   panelOpenState: boolean = false
   vitesseVentBoll: boolean = true
   AfficheError: string = ""
+  DrapeauPays:string =""
   //error
   villeError?: boolean = false
   loading: boolean = false
@@ -43,8 +44,9 @@ export class AppComponent {
 
          this.acronymePays = (this.affiche.sys.country)
          console.log(this.acronymePays)
-        this.pays = countries[this.acronymePays]
+        this.pays = countries[this.acronymePays].pays
         console.log(this.pays)
+        this.DrapeauPays = countries[this.acronymePays].drapeau
 
         this.boolaffiche = true
         console.log(this.affiche)
