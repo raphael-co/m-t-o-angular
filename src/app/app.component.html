@@ -18,7 +18,7 @@
 <body>
   <br>
   <div class="global">
-    <p>Taper la ville que vous recherchez</p>
+    <p>Tapez la ville que vous recherchez</p>
     <div class="container">
       <div layout="row" layout-align="center center">
         <mat-form-field class="example-full-width input" appearance="fill">
@@ -33,11 +33,9 @@
           {{AfficheError}}
         </span>
       </div>
-
-
       <div *ngIf="boolaffiche == true">
         <mat-tab-group class="groupe">
-          <mat-tab label="Pays"> {{affiche?.sys.country}} </mat-tab>
+          <mat-tab label="Pays"> {{pays}} </mat-tab>
           <mat-tab label="Ville"> {{affiche?.name}} </mat-tab>
           <mat-tab label="Temperature"> <span>
               <img src="http://openweathermap.org/img/w/{{affiche?.weather[0].icon}}.png"></span><br>

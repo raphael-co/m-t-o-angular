@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Weather, WeatherService } from './weather.service';
+import countries from './countries.json';
 
 @Component({
   selector: 'app-root',
@@ -9,9 +10,10 @@ import { Weather, WeatherService } from './weather.service';
 })
 export class AppComponent {
 
-
+  pays: any = countries;
   title = 'angular-weather-api';
   city!: any;
+  acronymePays?:any;
   affiche!: any;
   boolaffiche?: boolean = false
   temperature?: any;
@@ -37,8 +39,14 @@ export class AppComponent {
 
       //reception des données
       res => {
-        this.boolaffiche = true
         this.affiche = res
+
+         this.acronymePays = (this.affiche.sys.country).toLowerCase()
+         console.log(this.acronymePays)
+        this.pays = countries[this.acronymePays]
+        console.log(this.pays)
+
+        this.boolaffiche = true
         console.log(this.affiche)
         this.loading = true;
         //temperature
