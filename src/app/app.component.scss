@@ -1,0 +1,38 @@
+body{ 
+    width:100vw;
+    height:83.8vh;
+    text-align: center;
+}
+
+.error{
+    width: 100%;
+    background-color: red;
+    
+}
+
+.foothead{
+    width: 100%;
+    text-align:center;
+}
+
+footer{ 
+    // position:fixed;
+    bottom:0;  /* on le colle en bas */
+    width:100%;
+}
+
+.container{
+    // margin-left: 40%;
+    text-align: center;
+    width: 100%;
+}
+
+.groupe{
+    margin-left: 33%;
+    width: 34%;
+}
+
+.input{
+    text-align: center;
+}
+

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>weather-Api</title>
+</head>
+
+
+<header>
+  <mat-toolbar color="primary">
+    <span class="foothead">Météo</span>
+  </mat-toolbar>
+</header>
+
+<body>
+  <br>
+  <div class="global">
+    <p>Taper la ville que vous recherchez</p>
+    <div class="container">
+      <div layout="row" layout-align="center center">
+        <mat-form-field class="example-full-width input" appearance="fill">
+          <mat-label>Ville</mat-label>
+          <input [(ngModel)]="city" matInput placeholder="" class="input">
+        </mat-form-field>
+      </div>
+      <button (click)="loadweather()" mat-button color="primary">Rechercher</button>
+
+      <div class="error" *ngIf="villeError == true">
+        <span>
+          {{AfficheError}}
+        </span>
+      </div>
+
+
+      <div *ngIf="boolaffiche == true">
+        <mat-tab-group class="groupe">
+          <mat-tab label="Pays"> {{affiche?.sys.country}} </mat-tab>
+          <mat-tab label="Ville"> {{affiche?.name}} </mat-tab>
+          <mat-tab label="Temperature"> <span>
+              <img src="http://openweathermap.org/img/w/{{affiche?.weather[0].icon}}.png"></span><br>
+            <p>Main: {{affiche?.weather[0].main}}</p>
+            <p>Description: {{affiche?.weather[0].description}}</p>
+            <mat-accordion>
+              <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                  <!-- <mat-panel-title>
+                  Plus d'information
+                </mat-panel-title> -->
+                  <mat-panel-description>
+                    Plus d'information
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+                <p>humidité: {{affiche?.main.humidity}} %</p>
+                <p>degré: {{temperature}}°C</p>
+                <p>temperature ressentis: {{temperatureRessentis}}°C</p>
+                <p>direction du vent: {{directionVent}}</p>
+                <p>vitesse du vent: {{vitesseVent}} km/h</p>
+
+                <div *ngIf="vitesseVentBoll == true">
+                  <p>vitesse moyen des Rafale de vent: {{vitessRafalVent}} km/h</p>
+
+                </div>
+                <div *ngIf="vitesseVentBoll == false">
+                  <p>vitesse moyen des rafales de vent: {{vitessRafalVent}} </p>
+
+                </div>
+
+              </mat-expansion-panel>
+            </mat-accordion>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+    </div>
+  </div>
+</body>
+<footer>
+  <mat-toolbar color="primary">
+    <span class="foothead">Météo</span>
+  </mat-toolbar>
+</footer>
+
+</html>
