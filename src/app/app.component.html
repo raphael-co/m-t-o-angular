@@ -35,7 +35,8 @@
       </div>
       <div *ngIf="boolaffiche == true">
         <mat-tab-group class="groupe">
-          <mat-tab label="Pays"> {{pays}} </mat-tab>
+          <mat-tab label="Pays">acronyme: {{acronymePays}} <br> 
+            pays: {{pays}} </mat-tab>
           <mat-tab label="Ville"> {{affiche?.name}} </mat-tab>
           <mat-tab label="Temperature"> <span>
               <img src="http://openweathermap.org/img/w/{{affiche?.weather[0].icon}}.png"></span><br>

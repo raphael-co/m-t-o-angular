@@ -41,7 +41,7 @@ export class AppComponent {
       res => {
         this.affiche = res
 
-         this.acronymePays = (this.affiche.sys.country).toLowerCase()
+         this.acronymePays = (this.affiche.sys.country)
          console.log(this.acronymePays)
         this.pays = countries[this.acronymePays]
         console.log(this.pays)
